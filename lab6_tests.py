@@ -1,7 +1,7 @@
 import data
 import lab6
 import unittest
-
+from data import Book
 
 # Write your test cases for each part below.
 
@@ -64,18 +64,56 @@ class TestCases(unittest.TestCase):
 
 
     # Part 1
-
+    def test_part1_1(self):
+        input = [Book("Morgan", "Greg"), Book("Druid", "Claw"), Book("Dray", "Gru")]
+        result = lab6.selection_sort_books(input)
+        check = [Book("Druid", "Claw"), Book("Morgan", "Greg"), Book("Dray", "Gru")]
+        self.assertEqual(check, result)
 
     # Part 2
+    def testpart2_1(self):
+        input = "HIman"
+        result = lab6.swap_case(input)
+        check = "hiMAN"
+        self.assertEqual(check, result)
 
-
+    def testpart2_2(self):
+        input = "NiÑo-HowaREyOu"
+        result = lab6.swap_case(input)
+        check = "nIñO-hOWAreYoU"
+        self.assertEqual(check, result)
     # Part 3
+    def testpart3_1(self):
+        result = lab6.str_translate("rotting", "t", "b")
+        check = "robbing"
+        self.assertEqual(check, result)
 
-
+    def testpart3_1(self):
+        result = lab6.str_translate("fafsaFF", "F", "b")
+        check = "fafsabb"
+        self.assertEqual(check, result)
     # Part 4
+    def testpart4_1(self):
+        result = lab6.histogram("the word is the life of the word")
+        check = {"the":3,
+                 "word":2,
+                 "is": 1,
+                 "life":1,
+                 "of":1}
+        self.assertEqual(check,result)
 
-
-
+    def testpart4_2(self):
+        result = lab6.histogram("when life gives you lemons you lemons the life for more life of lemons")
+        check = {"when":1,
+                 "life":3,
+                 "gives": 1,
+                 "you":2,
+                 "lemons":3,
+                 "the": 1,
+                 "for":1,
+                 "more":1,
+                 "of":1}
+        self.assertEqual(check,result)
 
 
 if __name__ == '__main__':
